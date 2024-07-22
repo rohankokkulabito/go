@@ -1063,6 +1063,8 @@ func isWindowsDeveloperModeActive() bool {
 		return false
 	}
 
+	defer key.Close()
+
 	val, _, err := key.GetIntegerValue("AllowDevelopmentWithoutDevLicense")
 	if err != nil {
 		return false
